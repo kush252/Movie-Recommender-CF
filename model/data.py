@@ -8,10 +8,7 @@ user_item_matrix_copy = ratings.pivot_table(index='userId', columns='movieId', v
 user_item_matrix = ratings.pivot_table(index='userId', columns='movieId', values='rating').fillna(0)
 # print(user_item_matrix.head(5))
 
-# Fill NaNs with 0 for similarity calculation
 item_user_matrix = user_item_matrix.T.fillna(0)
-
-# Compute similarity between items
 item_similarity = cosine_similarity(item_user_matrix)
 
 
